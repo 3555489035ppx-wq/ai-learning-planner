@@ -1,0 +1,26 @@
+{
+  "name": "holiday-leap-mvp",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build && node scripts/prepare-hosting.mjs",
+    "preview": "vite preview",
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "6.0.3",
+    "vite": "8.1.4",
+    "typescript": "7.0.2",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-router-dom": "7.18.1",
+    "tailwindcss": "4.3.2",
+    "@tailwindcss/vite": "4.3.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0"
+  }
+}

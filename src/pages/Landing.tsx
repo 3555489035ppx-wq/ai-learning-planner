@@ -35,7 +35,7 @@ export default function Landing() {
           <h1 data-page-title tabIndex={-1}><span>把有限的假期</span><span className="landing-title-accent">留给无限的提升</span></h1>
           <p>不把计划排满，而是根据你的成绩、目标与现实安排，帮你决定这个假期最该先做什么。</p>
           <div className="hero-actions"><Link className="button primary" to={destination}>{action} <Icon name="arrow" size={17} /></Link><button type="button" className="button secondary" onClick={startDemo} disabled={demoLoading}>{demoLoading ? '正在加载…' : '体验高中生 Demo'} <Icon name="arrow" size={17} /></button></div>
-          <p className="hero-note">Demo 已预置高二学生的六科成绩、模拟诊断与 30 天计划；不需要登录或填写信息。</p>
+          <p className="hero-note">Demo：高二学生 · 语文 · 数学 · 英语 · 政治 · 物理 · 化学。已预置六科成绩、差异化诊断与 30 天计划；不需要登录或填写信息。</p>
         </div>
         <aside className="landing-overview" aria-label="假期计划预览">
           <div className="overview-topline"><span className="section-kicker">计划预览</span><span className="overview-status"><i /> {activeCourses.length ? '已读取你的课程' : '等待你的第一条信息'}</span></div>

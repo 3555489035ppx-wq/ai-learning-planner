@@ -66,7 +66,7 @@ Demo 数据只写入当前浏览器的 `localStorage`，不会修改代码仓库
 
 ## 本地运行
 
-需要 Node.js 20+。仓库以 `pnpm-lock.yaml` 作为可复现安装依据，推荐使用 pnpm；也支持 npm 执行同名脚本。
+需要 Node.js 22.6+。仓库以 `pnpm-lock.yaml` 作为可复现安装依据，推荐使用 pnpm；也支持 npm 执行同名脚本。
 
 ```bash
 corepack enable

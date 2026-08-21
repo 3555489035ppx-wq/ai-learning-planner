@@ -3,6 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "description": "AI personalized holiday learning planner portfolio demo",
+  "engines": {
+    "node": ">=22.6"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

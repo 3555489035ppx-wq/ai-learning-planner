@@ -38,7 +38,7 @@ The design separates learning intent from calendar placement, keeps explanations
 
 ## 8. Demo Result
 
-The [Live Demo](https://ai-learning-planner-sepia.vercel.app/plan) opens a high-school case without login or data entry. A user can reach diagnosis, 30-day plan, daily execution, and recovery preview in about three minutes.
+The [Live Demo](https://ai-learning-planner-sepia.vercel.app/) opens the product homepage. Click **体验高中生 Demo** to load the high-school case, then reach diagnosis, the 30-day plan, daily execution, and recovery preview in about three minutes.
 
 ## 9. Future Plan
 

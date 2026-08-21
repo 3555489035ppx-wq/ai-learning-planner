@@ -4,9 +4,14 @@
 
 假期跃迁不是普通待办清单。它帮助高中生与大学生理解自己的起点，判断课程优先级，生成可执行的学习计划，并在计划被打断后给出可比较、可撤销的恢复方案。
 
-[Live Demo](https://ai-learning-planner-sepia.vercel.app) · [GitHub](https://github.com/3555489035ppx-wq/ai-learning-planner)
+[Live Demo](https://ai-learning-planner-sepia.vercel.app/plan) · [GitHub](https://github.com/3555489035ppx-wq/ai-learning-planner)
 
 ![AI Learning Planner — 高中生 Demo](docs/screenshots/after/landing-github.png)
+
+## Live Demo
+
+- 本地演示：<http://localhost:5173/plan>
+- 公开地址：[Vercel Demo](https://ai-learning-planner-sepia.vercel.app/plan)
 
 ## Project Background
 
@@ -68,7 +73,7 @@ flowchart LR
 
 ### 1-minute entry
 
-1. Open the [Live Demo](https://ai-learning-planner-sepia.vercel.app).
+1. Open the [Live Demo](https://ai-learning-planner-sepia.vercel.app/plan).
 2. Click **体验高中生 Demo**.
 3. The product loads a high-school student, six subjects, differentiated scores, simulated diagnosis, and a 30-day plan.
 

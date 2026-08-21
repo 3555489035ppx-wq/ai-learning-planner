@@ -14,7 +14,7 @@ Build a local-first personal learning system that creates explainable plans, cap
 
 ## 4. My Responsibilities
 
-Product framing, information architecture, diagnosis and planning flow, AI interaction contract, data model, frontend implementation, accessibility states, demo content, and portfolio documentation.
+Product framing, information architecture, diagnosis and planning flow, AI interaction contract, data model, frontend implementation, accessibility states, demo content, and project documentation.
 
 ## 5. Product Flow
 
@@ -38,7 +38,7 @@ The design separates learning intent from calendar placement, keeps explanations
 
 ## 8. Demo Result
 
-The [Live Demo](https://ai-learning-planner-sepia.vercel.app/plan) opens a high-school case without login or data entry. A reviewer can reach diagnosis, 30-day plan, daily execution, and recovery preview in about three minutes.
+The [Live Demo](https://ai-learning-planner-sepia.vercel.app/plan) opens a high-school case without login or data entry. A user can reach diagnosis, 30-day plan, daily execution, and recovery preview in about three minutes.
 
 ## 9. Future Plan
 

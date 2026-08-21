@@ -10,8 +10,7 @@
 
 ## Live Demo
 
-- 本地演示：<http://localhost:5173/plan>
-- 公开地址：[Vercel Demo](https://ai-learning-planner-sepia.vercel.app/plan)
+- 公开网址：<https://ai-learning-planner-sepia.vercel.app/plan>
 
 ## Project Background
 
@@ -102,7 +101,7 @@ The curated screenshot index is in [`docs/screenshots`](docs/screenshots). Autom
 - Plan drafts, diff preview, activation, version history, and ChangeSet undo
 - Responsive desktop/mobile interaction, keyboard paths, focus management, and Playwright coverage
 
-## Portfolio Documents
+## Project Documents
 
 - [Case Study](docs/case-study.md)
 - [Product Story](docs/product-story.md)
@@ -126,7 +125,7 @@ pnpm install
 pnpm dev
 ```
 
-Open `http://127.0.0.1:5173/` after the dev server starts. Quality checks:
+After the dev server starts, use the development URL printed by Vite. Quality checks:
 
 ```bash
 pnpm run lint

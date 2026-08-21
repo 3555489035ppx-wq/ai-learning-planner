@@ -6,3 +6,5 @@
 - 移动端：`landing`、`today`、`diagnosis`、`plan`、`weekly-review`、`settings`。
 
 分辨率分别为 `1440x900` 与 `390x844`。每轮截图前均注入“高中数学 9/100、低置信度诊断与恢复信号”演示数据；不修改默认空白用户数据。
+
+README 使用的学习计划展示图为 `docs/screenshots/after/plan-github.png`，用于展示完整课表，不替代 `plan-1440x900.png` 的视觉回归基准。

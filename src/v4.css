@@ -736,7 +736,7 @@ small,.coach-message span,.coach-panel header p,.check-field small,.assessment-g
 }
 
 /* Landing · a useful first screen without returning to the removed 01—04 sections. */
-.landing-v6 .landing-hero-planner { display: grid; width: min(100% - 48px, 1400px); max-width: 1400px; min-height: calc(100dvh - 64px); grid-template-columns: minmax(0, 1.12fr) minmax(460px, .68fr); align-items: center; gap: clamp(56px, 6vw, 104px); padding: clamp(56px, 9vh, 108px) 0 80px; text-align: left; }
+.landing-v6 .landing-hero-planner { display: grid; width: min(100% - 48px, 1400px); max-width: 1400px; min-height: calc(100dvh - 64px); grid-template-columns: minmax(0, 1.12fr) minmax(460px, .68fr); align-items: center; align-content: center; gap: clamp(56px, 6vw, 104px); padding: clamp(56px, 9vh, 108px) 0 80px; text-align: left; }
 .landing-v6 .landing-hero-copy { max-width: 720px; }
 .landing-v6 .landing-hero-copy h1 { max-width: 680px; margin: 24px 0 30px; font-size: clamp(3.4rem, 5.4vw, 6.2rem); font-weight: 760; letter-spacing: -.065em; line-height: .99; text-wrap: balance; }
 .landing-v6 .landing-hero-copy h1 span { display: block; white-space: nowrap; }
@@ -803,7 +803,7 @@ small,.coach-message span,.coach-panel header p,.check-field small,.assessment-g
 
 @media (max-width: 860px) {
   .schedule-budget-panel { grid-template-columns: 1fr; gap: 18px; }
-  .landing-v6 .landing-hero-planner { min-height: auto; grid-template-columns: 1fr; gap: 44px; padding-top: 72px; padding-bottom: 56px; }
+  .landing-v6 .landing-hero-planner { min-height: auto; grid-template-columns: 1fr; align-content: start; gap: 44px; padding-top: 72px; padding-bottom: 56px; }
   .landing-v6 .landing-hero-copy { max-width: 680px; }
   .landing-v6 .landing-hero-copy h1 { font-size: clamp(3.1rem, 8vw, 5rem); }
   .landing-v6 .landing-hero-copy h1 span { white-space: normal; }

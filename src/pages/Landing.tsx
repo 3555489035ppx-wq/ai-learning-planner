@@ -27,7 +27,7 @@ export default function Landing() {
     }
   }
   return <div className="landing landing-v6">
-    <header className="landing-nav"><Logo /><nav aria-label="首页导航"><button type="button" className="landing-demo-link" onClick={startDemo} disabled={demoLoading}>{demoLoading ? '正在加载…' : '体验高中生 Demo'}</button><Link to={destination}>开始规划</Link></nav></header>
+    <header className="landing-nav"><Logo withMark={false} /><nav aria-label="首页导航"><button type="button" className="landing-demo-link" onClick={startDemo} disabled={demoLoading}>{demoLoading ? '正在加载…' : '体验高中生 Demo'}</button><Link to={destination}>开始规划</Link></nav></header>
     <main>
       <section className="landing-hero landing-hero-planner">
         <div className="landing-hero-copy">

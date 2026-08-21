@@ -34,8 +34,8 @@ export function Icon({ name, size = 18 }: { name: string; size?: number }) {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={icons[name] || icons.plan} /></svg>
 }
 
-export function Logo() {
-  return <Link to="/" className="brand"><span className="brand-mark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5.5 18h4v-4h4v-4h5" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /><path d="M5.5 6.5h4" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" /></svg></span><span>假期跃迁</span></Link>
+export function Logo({ withMark = true }: { withMark?: boolean } = {}) {
+  return <Link to="/" className="brand">{withMark && <span className="brand-mark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5.5 18h4v-4h4v-4h5" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /><path d="M5.5 6.5h4" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" /></svg></span>}<span>假期跃迁</span></Link>
 }
 
 const primaryNavItems = [

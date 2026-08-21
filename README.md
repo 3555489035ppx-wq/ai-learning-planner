@@ -51,7 +51,7 @@ Demo 数据只写入当前浏览器的 `localStorage`，不会修改代码仓库
 
 | 产品入口 | 学习计划 |
 | --- | --- |
-| ![产品入口](docs/screenshots/after/landing-1440x900.png) | ![学习计划](docs/screenshots/after/plan-1440x900.png) |
+| ![产品入口](docs/screenshots/after/landing-1440x900.png) | ![学习计划](docs/screenshots/after/plan-github.png) |
 
 更多桌面端、移动端与恢复弹窗截图见 [截图清单](docs/portfolio/screenshot-manifest.md)。
 

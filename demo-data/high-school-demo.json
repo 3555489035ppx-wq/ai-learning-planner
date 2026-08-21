@@ -1,0 +1,22 @@
+{
+  "id": "high-school-demo-2026",
+  "student": {
+    "displayName": "林然 · 高二 Demo",
+    "stage": "高中",
+    "grade": "高二",
+    "goal": "提升成绩"
+  },
+  "holiday": {
+    "days": 30,
+    "dailyMinutes": 270
+  },
+  "scores": [
+    { "id": "high.chinese", "name": "高中语文", "score": 108, "maxScore": 150, "targetScore": 120 },
+    { "id": "high.math", "name": "高中数学", "score": 82, "maxScore": 150, "targetScore": 105 },
+    { "id": "high.english", "name": "高中英语", "score": 118, "maxScore": 150, "targetScore": 128 },
+    { "id": "high.politics", "name": "高中思想政治", "score": 72, "maxScore": 100, "targetScore": 82 },
+    { "id": "high.physics", "name": "高中物理", "score": 63, "maxScore": 100, "targetScore": 78 },
+    { "id": "high.chemistry", "name": "高中化学", "score": 78, "maxScore": 100, "targetScore": 88 }
+  ],
+  "note": "本数据用于作品集演示；诊断和计划由本地模拟规则生成，不代表真实 AI 或真实学习结果。"
+}

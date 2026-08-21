@@ -5,4 +5,4 @@ The README uses curated product captures rather than development or console scre
 - `after/landing-github.png` — product entry and Demo CTA
 - `after/plan-github.png` — explainable weekly plan
 
-The remaining files under `after/` are visual-regression evidence. Keep the two roles distinct: portfolio screenshots explain the product; regression screenshots protect implementation quality.
+The remaining files under `after/` are visual-regression evidence. Keep the two roles distinct: public screenshots explain the product; regression screenshots protect implementation quality.

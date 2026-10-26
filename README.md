@@ -1,123 +1,69 @@
 # AI Learning Planner · 假期跃迁
 
-> AI Personal Learning System for turning limited holiday time into an explainable, recoverable plan.
+把成绩、目标与有限的假期时间，转成可解释、可执行、能从中断中恢复的学习计划。
 
-假期跃迁不是普通待办清单。它帮助高中生与大学生理解自己的起点，判断课程优先级，生成可执行的学习计划，并在计划被打断后给出可比较、可撤销的恢复方案。
+[在线演示](https://ai-learning-planner-sepia.vercel.app/) · [体验路径](#三分钟体验) · [本地开发](#本地开发) · [项目文档](#项目文档)
 
-[Live Demo](https://ai-learning-planner-sepia.vercel.app/) · [GitHub](https://github.com/3555489035ppx-wq/ai-learning-planner)
+![假期跃迁产品入口](docs/screenshots/after/landing-github.png)
 
-![AI Learning Planner — 高中生 Demo](docs/screenshots/after/landing-github.png)
+> **当前形态：本地规则驱动的交互 Demo。** 无需 API Key；诊断与计划不是远程模型判断，不承诺成绩或考试结果。
 
-## Live Demo
+## 从诊断到恢复
 
-- 公开网址：<https://ai-learning-planner-sepia.vercel.app/>
-
-## Project Background
-
-学生的假期通常同时包含低分课程、考试目标、技能提升和现实安排。任务越多，越需要判断什么应该先做、为什么现在做，以及计划失败后怎样继续。普通待办清单能记录任务，却不能解释取舍，也不能保存恢复依据。
-
-## User Problem
-
-**Target users**
-
-- 高中生，尤其是需要补弱或建立学习节奏的学生
-- 同时推进多门课程的大学生
-- 需要把学习目标拆成可执行路径的产品设计 / 计算机学生
-
-**Core problems**
-
-1. 成绩或自评很难直接转成可行动的学习问题。
-2. 多门课程争夺同一段时间，却缺少可解释的优先级。
-3. 计划只告诉用户“做什么”，不说明“为什么这样安排”。
-4. 旅行、兼职、连续未完成后，任务容易失去上下文。
-
-## Product Goal
-
-把学习规划从任务生成升级为一条可解释、可执行、可恢复的闭环：
+面向高中生与大学生，解决多门课程争夺时间、优先级难判断，以及计划被旅行、兼职或未完成任务打断后难以继续的问题。
 
 ```text
-学习概况 → 课程诊断 → 优先级 → 学习阶段 / Task Pool → 周课表 → 今日执行 → 学习证据 → 周复盘 → Plan Recovery
+学习概况 → 课程诊断 → 优先级 → 学习阶段 / Task Pool → 周课表 → 今日执行 → 学习证据 → 周复盘 → 计划恢复
 ```
 
-系统回答两件不同的事：学习阶段决定“学什么”，周课表决定“什么时候学”。用户确认后才会启用计划或应用调整。
+| 关键环节 | 设计取舍 |
+| --- | --- |
+| 先诊断，再排程 | 成绩只是起点证据；展示优势、问题、置信度和限制，避免把低分直接等同于增加任务。 |
+| 分开“学什么”与“何时学” | 课程、阶段、Task Pool、Placement 与周课表分层，保留判断到执行的关系。 |
+| 先预览，再应用 | 调整展示差异、原因和影响范围，确认后才写入，并生成可撤销的 ChangeSet。 |
+| 用执行证据复盘 | 完成、延期与实际学习时长进入后续恢复依据。 |
 
-## My Design Decisions
+## 三分钟体验
 
-### Why not build another todo list?
+1. 打开[在线演示](https://ai-learning-planner-sepia.vercel.app/)，点击 **体验高中生 Demo**，载入六门课程、差异化成绩、模拟诊断和 30 天计划。
+2. 在 **课程诊断** 中比较数学、英语、物理与政治的结论。
+3. 在 **学习计划** 中查看阶段、Task Pool 和周课表，理解安排依据。
+4. 在 **今日** 完成或延期任务，记录实际学习分钟数。
+5. 到 **周复盘** 查看恢复候选，预览调整后再确认。
 
-待办清单只记录任务，不处理课程之间的取舍、诊断置信度和中断后的恢复。假期跃迁把课程、阶段、Task Pool、Placement、Weekly Schedule 和 Evidence 分层，让用户可以看见从判断到执行的关系。
+示例日程包含数学函数、英语阅读、物理力学与错题整理；具体节次按可用时间和优先级轮换，不是固定承诺。
 
-### Why show diagnosis before the schedule?
-
-成绩是起点证据，不是知识点结论。产品先展示当前优势、主要问题、置信度和下一步，再把这些依据带入排程，避免“低分 = 盲目加任务”。
-
-### Why preview before applying changes?
-
-计划调整会影响真实时间，所以系统先展示差异、原因和影响范围；用户确认后才写入，并生成可撤销 ChangeSet（变更集）。
-
-## AI Workflow
+## 计划如何产生
 
 ```mermaid
 flowchart LR
-  A[Input<br/>成绩 / 自评 / 目标 / 可用时间] --> B[Context<br/>课程 / 阶段 / 历史执行 / 现实约束]
-  B --> C[Processing<br/>诊断 / 排优先级 / 排课 / 生成恢复候选]
-  C --> D[Human Review<br/>查看依据 / 编辑 / 拒绝 / 确认]
-  D --> E[Output<br/>诊断卡 / 30天计划 / 今日任务 / 调整预览]
-  E --> F[Persistence<br/>Evidence / 版本 / ChangeSet / 可撤销恢复]
+  A[成绩 / 自评 / 目标 / 时间] --> B[课程与执行上下文]
+  B --> C[本地规则：诊断 / 优先级 / 排程]
+  C --> D[查看依据 / 编辑 / 拒绝 / 确认]
+  D --> E[计划与今日任务]
+  E --> F[学习证据 / 版本 / 可撤销变更]
+  F --> B
 ```
 
-当前公开 Demo 使用明确标记的本地规则 provider，不需要 API Key，也不把本地 mock 结果伪装成远程模型判断。真实 AI 接入应通过服务端 provider 完成，并保留同样的输入、上下文、限制、确认和回滚边界。
+当前 provider 明确标记本地规则结果。未来接入真实 AI 时，应通过服务端 provider，保留输入、限制、用户确认与回滚边界。
 
-## Demo
+## 界面预览
 
-### 1-minute entry
+![可解释的学习计划](docs/screenshots/after/plan-github.png)
 
-1. Open the [Live Demo](https://ai-learning-planner-sepia.vercel.app/).
-2. Click **体验高中生 Demo**.
-3. The product loads a high-school student, six subjects, differentiated scores, simulated diagnosis, and a 30-day plan.
+精选截图见 [`docs/screenshots`](docs/screenshots)。自动化视觉回归截图与对外展示分开维护。
 
-### Recommended 3-minute flow
+## 技术实现
 
-1. **课程诊断**：先看数学、英语、物理和政治的差异化结论。
-2. **学习计划**：查看阶段、Task Pool 和周课表。
-3. **典型一日**：08:00 数学函数基础、10:00 英语阅读训练、14:00 物理力学专题、晚间错题整理；具体节次会根据可用时间和优先级轮换。
-4. **今日**：完成或延期任务，并记录实际学习分钟数。
-5. **周复盘**：让真实执行证据进入 Plan Recovery，预览并确认下一步调整。
+- React 19、Vite、TypeScript、React Router。
+- `localStorage` 本地优先存储，包含 schema 迁移、导出与恢复。
+- 诊断、计划、排课、资源、Evidence 与恢复领域分层。
+- 任务依据包含成绩差距、优先级、依赖与限制；计划支持草稿、差异预览、启用、版本和撤销。
+- 响应式布局、键盘路径与焦点管理，配有 Playwright 测试。
 
-## Product Screens
+## 本地开发
 
-| Product entry | Explainable plan |
-| --- | --- |
-| ![产品入口](docs/screenshots/after/landing-github.png) | ![学习计划](docs/screenshots/after/plan-github.png) |
-
-The curated screenshot index is in [`docs/screenshots`](docs/screenshots). Automated visual-regression captures remain documented separately and are not used as the first impression.
-
-## Technical Implementation
-
-- React 19, Vite, TypeScript, and React Router
-- Local-first persistence with `localStorage`, schema migration, export, and restore
-- Diagnosis, planning, scheduling, resources, Evidence, and recovery domains
-- Explainable task rationale with score gap, priority, dependencies, and limitations
-- Plan drafts, diff preview, activation, version history, and ChangeSet undo
-- Responsive desktop/mobile interaction, keyboard paths, focus management, and Playwright coverage
-
-## Project Documents
-
-- [Case Study](docs/case-study.md)
-- [Product Story](docs/product-story.md)
-- [User Flow](docs/user-flow.md)
-- [Design Decisions](docs/design-decision.md)
-- [Demo Script](docs/demo-script.md)
-- [Engineering notes](docs/portfolio/engineering-notes.md)
-- [Test report](docs/portfolio/test-report.md)
-
-## Current Boundary
-
-The current demo has no login, cloud sync, remote AI, or formal learning-outcome evidence. Diagnosis and planning are local rule-based candidates; they do not guarantee scores or exam results. The next meaningful product validation is usability testing followed by longer-term behavior evidence.
-
-## Local Development
-
-Requires Node.js 22.6+ and pnpm.
+环境要求：Node.js 22.6+ 与 pnpm。
 
 ```bash
 corepack enable
@@ -125,7 +71,7 @@ pnpm install
 pnpm dev
 ```
 
-After the dev server starts, use the development URL printed by Vite. Quality checks:
+访问 Vite 输出的开发地址。检查命令：
 
 ```bash
 pnpm run lint
@@ -135,6 +81,16 @@ pnpm run test:e2e
 pnpm run build
 ```
 
-## Privacy Boundary
+## 项目文档
 
-The app stores learning data in the current browser. Do not enter unrelated sensitive information. Read the in-app privacy page before using real student data.
+| 产品与设计 | 实现与验证 |
+| --- | --- |
+| [案例研究](docs/case-study.md) · [产品故事](docs/product-story.md) | [工程说明](docs/portfolio/engineering-notes.md) |
+| [用户流程](docs/user-flow.md) · [设计决策](docs/design-decision.md) | [测试报告](docs/portfolio/test-report.md) |
+| [演示脚本](docs/demo-script.md) | |
+
+## 当前边界与隐私
+
+当前 Demo 没有登录、云同步或远程 AI，也没有正式的学习成效验证。后续验证应从可用性测试和长期行为证据开始。
+
+学习数据保存在当前浏览器中。使用真实学生数据前，请阅读应用内隐私页面；不要录入无关敏感信息。
